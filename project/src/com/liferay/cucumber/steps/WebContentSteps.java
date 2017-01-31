@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.cucumber.stepdefinitions;
+package com.liferay.cucumber.steps;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;

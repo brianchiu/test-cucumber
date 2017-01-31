@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.cucumber.stepdefinitions;
+package com.liferay.cucumber.steps;
 
 import java.util.List;
 
@@ -23,6 +23,7 @@ import cucumber.api.DataTable;
  * @author Brian Chiu
  */
 public class WebContentPageObject extends BasePageObject {
+
 	/*public void addWebContent(DataTable webContent) throws Exception {
 		List<List<String>> data = webContent.raw();
 

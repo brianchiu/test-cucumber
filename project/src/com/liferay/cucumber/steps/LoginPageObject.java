@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.cucumber.stepdefinitions;
+package com.liferay.cucumber.steps;
 
 /**
  * @author Michael Hashimoto

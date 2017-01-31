@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.cucumber.stepdefinitions;
+package com.liferay.cucumber.steps;
 
 import cucumber.api.java.en.When;
 
@@ -20,11 +20,11 @@ import cucumber.api.java.en.When;
  * @author Michael Hashimoto
  * @author Brian Chiu
  */
-public class ProductMenuSteps {
-    @When("^I navigate to \"([^\"]*)\" > \"([^\"]*)\" in the Product Menu$")
-    public void gotoSitePortlet(String category, String portlet) throws Exception {
-    	_productMenuPageObject.gotoSitePortlet(category, portlet);
-    }
+public class AppSteps {
+	@When("I add the \"([^\"]*)\" app$")
+	public void addPage(String appName) throws Exception {
+		_appPageObject.addApp(appName);
+	}
 
-    private ProductMenuPageObject _productMenuPageObject = new ProductMenuPageObject();
+	private AppPageObject _appPageObject = new AppPageObject();
 }

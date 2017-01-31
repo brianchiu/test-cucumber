@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.liferay.cucumber.stepdefinitions;
+package com.liferay.cucumber.steps;
 
 import com.liferay.cucumber.selenium.LiferaySelenium;
 import com.liferay.cucumber.selenium.SeleniumUtil;

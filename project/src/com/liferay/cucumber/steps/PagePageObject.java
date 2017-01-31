@@ -12,19 +12,33 @@
  * details.
  */
 
-package com.liferay.cucumber.stepdefinitions;
-
-import cucumber.api.java.en.When;
+package com.liferay.cucumber.steps;
 
 /**
  * @author Michael Hashimoto
  * @author Brian Chiu
  */
-public class AppSteps {
-	@When("I add the \"([^\"]*)\" app$")
-	public void addPage(String appName) throws Exception {
-		_appPageObject.addApp(appName);
+public class PagePageObject extends BasePageObject {
+	public void addPage(String pageName) throws Exception {
+		_productMenuPageObject.expandProductMenu();
+
+		_productMenuPageObject.expandCategory("Navigation");
+
+		click(publicPageEllipsisLocator);
+
+		clickLink("Add Public Page");
+
+		typeField("Name", pageName);
+
+		clickButton("Add Page");
 	}
 
-	private AppPageObject _appPageObject = new AppPageObject();
+	public void gotoPage(String pageName) throws Exception {
+		clickLink(pageName);
+	}
+
+	private ProductMenuPageObject _productMenuPageObject = new ProductMenuPageObject();
+
+	private String publicPageEllipsisLocator = "//*[@data-qa-id='publicPagesOptions']";
+
 }

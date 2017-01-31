@@ -12,26 +12,24 @@
  * details.
  */
 
-package com.liferay.cucumber.stepdefinitions;
-
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+package com.liferay.cucumber.steps;
 
 /**
  * @author Michael Hashimoto
  * @author Brian Chiu
  */
-public class LoginSteps {
+public class AppPageObject extends BasePageObject {
+	public void addApp(String appName) throws Exception {
+		String addAppLocator = "//span[contains(@data-title,'" + appName + "') and contains(@class,'add-content-item')]";
 
-    @When("^I log in as \"([^\"]*)\" with password \"([^\"]*)\"$")
-    public void login(String emailAddress, String password) throws Exception {
-        _loginPageObject.login(emailAddress, password);
-    }
+		String appLoadedLocator = "//div[contains(@class,'portlet-content')]/h2[contains(.,'" + appName + "')]";
 
-    @Then("^I logout$")
-    public void logout() throws Exception {
-    	_loginPageObject.logout();
-    }
+		_addPanelPageObject.searchApplication(appName);
 
-    private LoginPageObject _loginPageObject = new LoginPageObject();
+		pauseMakeVisibleClick(addAppLocator);
+
+		assertVisible(appLoadedLocator);
+	}
+
+	private AddPanelPageObject _addPanelPageObject = new AddPanelPageObject();
 }
