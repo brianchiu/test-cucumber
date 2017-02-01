@@ -12,7 +12,9 @@
  * details.
  */
 
-package com.liferay.cucumber.steps;
+package com.liferay.cucumber.pages;
+
+import com.liferay.cucumber.steps.BasePageObject;
 
 /**
  * @author Michael Hashimoto

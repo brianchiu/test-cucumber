@@ -16,6 +16,8 @@ package com.liferay.cucumber.steps;
 
 import cucumber.api.java.en.When;
 
+import com.liferay.cucumber.pages.AppPageObject;
+
 /**
  * @author Michael Hashimoto
  * @author Brian Chiu
