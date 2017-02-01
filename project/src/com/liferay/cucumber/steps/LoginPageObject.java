@@ -12,9 +12,7 @@
  * details.
  */
 
-package com.liferay.cucumber.stepdefinitions;
-
-import com.liferay.cucumber.selenium.SeleniumUtil;
+package com.liferay.cucumber.steps;
 
 /**
  * @author Michael Hashimoto
@@ -31,22 +29,26 @@ public class LoginPageObject extends BasePageObject {
 		typeField("Password", password);
 
 		clickButton("Sign In");
+
+		assertVisible(userAvatarImage);
 	}
 
 	public void logout() throws Exception {
-		String userAvatarImage =
-			"//*[@data-qa-id='openUserMenu'] | " +
-				"//span[@class='user-avatar-image']";
-
 		String productMenuTabExpanded =
 			"//*[@data-qa-id='productMenuUserPanelCategory']" +
 				"[@aria-expanded='true']";
 
 		click(userAvatarImage);
 
-		selenium.waitForVisible(productMenuTabExpanded);
+		assertVisible(productMenuTabExpanded);
 
 		clickLink("Sign Out");
+
+		assertVisibleLink("Sign In");
 	}
+
+	private String userAvatarImage =
+		"//*[@data-qa-id='openUserMenu'] | " +
+			"//span[@class='user-avatar-image']";
 
 }

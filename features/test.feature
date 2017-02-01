@@ -21,9 +21,18 @@ Feature: Feature 1.2
 		And I enter "test" in the "Password" field
 		And I click the "Sign In" button
 		Then I logout
+	
+	Scenario: Portal Smoke Build
+		Given I log in as "test@liferay.com" with password "test"
+		When I navigate to "Content" > "Web Content" in the Product Menu
+		And I add the following Web Content
+			| Web Content Title | Web Content Content |
+		Then I should see the following Web Content in the admin portlet
+			| Web Content Title | Web Content Content |
+		
 
 	Scenario: Portal Smoke
-		Given I am signed in as the super admin
+		Given I log in as "test@liferay.com" with password "test"
 		When I add a page named <name>
 			| name       |
 			| Test Page1 |

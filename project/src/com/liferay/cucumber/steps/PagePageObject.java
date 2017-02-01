@@ -12,26 +12,33 @@
  * details.
  */
 
-package com.liferay.cucumber.stepdefinitions;
-
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+package com.liferay.cucumber.steps;
 
 /**
  * @author Michael Hashimoto
  * @author Brian Chiu
  */
-public class LoginSteps {
+public class PagePageObject extends BasePageObject {
+	public void addPage(String pageName) throws Exception {
+		_productMenuPageObject.expandProductMenu();
 
-    @When("^I login as \"([^\"]*)\" with password \"([^\"]*)\"$")
-    public void login(String emailAddress, String password) throws Exception {
-        _loginPageObject.login(emailAddress, password);
-    }
+		_productMenuPageObject.expandCategory("Navigation");
 
-    @Then("^I logout$")
-    public void logout() throws Exception {
-    	_loginPageObject.logout();
-    }
+		click(publicPageEllipsisLocator);
 
-    private LoginPageObject _loginPageObject = new LoginPageObject();
+		clickLink("Add Public Page");
+
+		typeField("Name", pageName);
+
+		clickButton("Add Page");
+	}
+
+	public void gotoPage(String pageName) throws Exception {
+		clickLink(pageName);
+	}
+
+	private ProductMenuPageObject _productMenuPageObject = new ProductMenuPageObject();
+
+	private String publicPageEllipsisLocator = "//*[@data-qa-id='publicPagesOptions']";
+
 }

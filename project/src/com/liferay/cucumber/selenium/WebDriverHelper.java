@@ -14,13 +14,6 @@
 
 package com.liferay.cucumber.selenium;
 
-import com.liferay.cucumber.util.CharPool;
-import com.liferay.cucumber.util.FileUtil;
-import com.liferay.cucumber.util.GetterUtil;
-import com.liferay.cucumber.util.HtmlUtil;
-import com.liferay.cucumber.util.PropsValues;
-import com.liferay.cucumber.util.Validator;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -35,14 +28,11 @@ import java.util.concurrent.TimeoutException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import junit.framework.TestCase;
-
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -55,6 +45,14 @@ import org.openqa.selenium.internal.WrapsDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.liferay.cucumber.util.CharPool;
+import com.liferay.cucumber.util.FileUtil;
+import com.liferay.cucumber.util.GetterUtil;
+import com.liferay.cucumber.util.HtmlUtil;
+import com.liferay.cucumber.util.PropsValues;
+
+import junit.framework.TestCase;
 
 /**
  * @author Kenji Heigel
